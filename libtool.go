@@ -44,7 +44,7 @@ func configure() {
 
 func build() {
 	fmt.Println("Waiting while compiling ...")
-	cmd := exec.Command("make")
+	cmd := exec.Command("make", "-j"+pkgsrc.Ncpu)
 	if out, err := cmd.Output(); err != nil {
 		log.Fatal(err)
 	} else {
